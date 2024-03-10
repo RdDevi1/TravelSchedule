@@ -34,3 +34,20 @@ final class NearestStationsService: NearestStationsServiceProtocol {
         return try response.ok.body.json
     }
 }
+//
+//func stations() {
+//    let client = Client(
+//        serverURL: try Servers.server1(),
+//        transport: URLSessionTransport()
+//    )
+//    
+//    let service = NearestStationsService(
+//        client: client,
+//        apikey: "ВАШ КЛЮЧ"
+//    )
+//    
+//    Task {
+//        let stations = try await service.getNearestStations(lat: 59.864177, lng: 30.319163, distance: 50)
+//        print(stations)
+//    }
+//}
