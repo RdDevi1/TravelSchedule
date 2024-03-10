@@ -135,6 +135,56 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Copyright'
+  /v3.0/carrier/:
+    get:
+      tags:
+        - Информация о перевозчике
+      summary: Информация о перевозчике
+      operationId: getCarrierInfo
+      parameters:
+        - name: apikey
+          in: query
+          description: API key
+          required: true
+          schema:
+            type: string
+        - name: code
+          in: query
+          description: carrier code
+          required: true
+          schema:
+            type: string
+        - name: system
+          in: query
+          description: lang
+          required: false
+          schema:
+            type: string
+            enum:
+              - yandex
+              - iata
+              - sirena
+              - express
+              - esr
+        - name: format
+          in: query
+          description: json или xml
+          required: false
+          schema:
+            type: string
+        - name: lang
+          in: query
+          description: lang
+          required: false
+          schema:
+            type: string
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Carriers'
 components:
   schemas:
     Stations:
@@ -213,6 +263,11 @@ components:
     Copyright:
       type: object
       properties:
+        copyright:
+          $ref: '#/components/schemas/CopyrightBody'
+    CopyrightBody:
+      type: object
+      properties:
         logo_vm:
           type: string
         url:
@@ -229,4 +284,46 @@ components:
           type: string
         text:
           type: string
+    Carriers:
+      type: object
+      properties:
+        carriers:
+          type: array
+          items:
+            $ref: '#/components/schemas/Carrier'
+        carrier:
+          $ref: '#/components/schemas/Carrier'
+    Carrier:
+      type: object
+      properties:
+        code:
+          type: integer
+        contacts:
+          type: string
+        url:
+          type: string
+        logo_svg:
+          type: string
+        title:
+          type: string
+        phone:
+          type: string
+        codes:
+          $ref: '#/components/schemas/CarrierCodes'
+        address:
+          type: string
+        logo:
+          type: string
+        email:
+          type: string
+    CarrierCodes:
+      type: object
+      properties:
+        icao:
+          type: string
+        sirena:
+          type: string
+        iata:
+          type: string
+      
       
