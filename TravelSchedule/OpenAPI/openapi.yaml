@@ -185,6 +185,38 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Carriers'
+  /v3.0/stations_list/:
+    get:
+      tags:
+        - Список всех доступных станций
+      summary: Список всех доступных станций
+      operationId: getAllStations
+      parameters:
+        - name: apikey
+          in: query
+          description: API key
+          required: true
+          schema:
+            type: string
+        - name: format
+          in: query
+          description: json или xml
+          required: false
+          schema:
+            type: string
+        - name: lang
+          in: query
+          description: lang
+          required: false
+          schema:
+            type: string
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AllStations'
 components:
   schemas:
     Stations:
@@ -325,5 +357,68 @@ components:
           type: string
         iata:
           type: string
-      
-      
+    AllStations:
+      type: object
+      properties:
+        countries:
+          type: array
+          items:
+            $ref: '#/components/schemas/Country'
+    Country:
+      type: object
+      properties:
+        title:
+          type: string
+        codes:
+          $ref: '#/components/schemas/StationCodesForAllStation'
+        regions:
+          type: array
+          items:
+            $ref: '#/components/schemas/Region'
+    StationCodesForAllStation:
+      type: object
+      properties:
+        esr_code:
+          type: string
+        yandex_code:
+          type: string
+    Region:
+      type: object
+      properties:
+        title:
+          type: string
+        codes:
+          $ref: '#/components/schemas/StationCodesForAllStation'
+        settlements:
+          type: array
+          items:
+            $ref: '#/components/schemas/Settlements'
+    Settlements:
+      type: object
+      properties:
+        title:
+          type: string
+        codes:
+          $ref: '#/components/schemas/StationCodesForAllStation'
+        stations:
+          type: array
+          items:
+            $ref: '#/components/schemas/StationInSettlements'
+    StationInSettlements:
+      type: object
+      properties:
+        direction:
+          type: string
+        codes:
+          $ref: '#/components/schemas/StationCodesForAllStation'
+        station_type:
+          type: string
+        title:
+          type: string
+        longitude:
+          type: number
+        latitude:
+          type: number
+        transport_type:
+          type: string
+        
