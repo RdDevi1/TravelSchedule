@@ -103,13 +103,13 @@
 		C4D90D572B949CF2001BC6DA /* TravelSchedule */ = {
 			isa = PBXGroup;
 			children = (
-				C4AE6E9F2B9DFC800024112A /* Helpers */,
-				C4AE6E9B2B9DFC100024112A /* Servicies */,
-				C4FA81D22B9DF71E00AA7C70 /* OpenAPI */,
-				C4D90D582B949CF2001BC6DA /* TravelScheduleApp.swift */,
-				C4D90D5A2B949CF2001BC6DA /* ContentView.swift */,
 				C4D90D5C2B949CF4001BC6DA /* Assets.xcassets */,
+				C4D90D5A2B949CF2001BC6DA /* ContentView.swift */,
+				C4AE6E9F2B9DFC800024112A /* Helpers */,
+				C4FA81D22B9DF71E00AA7C70 /* OpenAPI */,
 				C4D90D5E2B949CF4001BC6DA /* Preview Content */,
+				C4AE6E9B2B9DFC100024112A /* Servicies */,
+				C4D90D582B949CF2001BC6DA /* TravelScheduleApp.swift */,
 			);
 			path = TravelSchedule;
 			sourceTree = "<group>";
