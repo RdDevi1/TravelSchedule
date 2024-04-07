@@ -1,15 +1,15 @@
 //
-//  ContentView.swift
+//  TestView.swift
 //  TravelSchedule
 //
-//  Created by Vitaly Anpilov on 03.03.2024.
+//  Created by Vitaly Anpilov on 07.04.2024.
 //
 
 import SwiftUI
 import OpenAPIURLSession
 import OpenAPIRuntime
 
-struct ContentView: View {
+struct TestView: View {
     var body: some View {
         VStack {
             Button("Показать ближайшие станции") {
@@ -50,11 +50,9 @@ struct ContentView: View {
 }
 
 #Preview {
-    ContentView()
+    TestView()
 }
 
-
-//MARK: - Actions
 
 func stations() {
     let client = Client (
