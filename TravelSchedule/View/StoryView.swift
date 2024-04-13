@@ -21,7 +21,7 @@ struct StoryView: View {
     let imageHeight: Double = 80
     
     var body: some View {
-        VStack {
+        ZStack {
             Image(story.image)
                 .resizable()
                 .scaledToFit()
@@ -40,7 +40,7 @@ struct StoryView: View {
         .clipShape(RoundedRectangle(cornerRadius: 20))
         .shadow(radius: 10)
     }
-   
+    
 }
 
 #Preview {

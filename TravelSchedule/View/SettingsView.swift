@@ -25,10 +25,10 @@ struct SettingsView: View {
             .padding()
             Spacer()
             Text("Приложение использует API Яндекс.Расписания")
-                .font(.footnote)
+                .font(.system(size: 12))
                 
-            Text("Верися .....")
-                .font(.footnote)
+            Text("Версия .....")
+                .font(.system(size: 12))
                 .padding(10)
         }
         .padding()
