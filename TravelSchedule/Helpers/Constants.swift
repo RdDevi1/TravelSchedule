@@ -14,15 +14,15 @@ enum Constants {
     
 }
 
-enum Cities {
-    static let tumen = "c55"
-    static let moscow = "c213"
-}
-
-enum cityStations {
-    static let svo = "s9600213"
-}
-
-enum ThreadUID {
-    static let thread = "4G-293_240416_c54_12"
-}
+//enum Cities {
+//    static let tumen = "c55"
+//    static let moscow = "c213"
+//}
+//
+//enum CityStations {
+//    static let svo = "s9600213"
+//}
+//
+//enum ThreadUID {
+//    static let thread = "4G-293_240416_c54_12"
+//}

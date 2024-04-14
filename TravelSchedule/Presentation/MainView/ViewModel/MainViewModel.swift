@@ -57,7 +57,7 @@ final class MainViewModel: ObservableObject {
         }
     }
     
-    func replaceStations() {
+    func switchStations() {
         if selectedStationTo?.name != nil && selectedStationFrom?.name != nil {
             let newStationTo = selectedStationFrom
             selectedStationFrom = selectedStationTo

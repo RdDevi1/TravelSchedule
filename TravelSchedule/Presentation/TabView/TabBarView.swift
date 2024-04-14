@@ -10,6 +10,10 @@ import OpenAPIURLSession
 import OpenAPIRuntime
 
 struct TabBarView: View {
+    @EnvironmentObject var coordinator: BaseCoordinator
+    @StateObject var viewModel: TabBarViewModel
+    @StateObject var mainViewModel = MainViewModel(stories: [], cities: [])
+    
     @State private var selectedTab = 0
     
     var body: some View {
@@ -47,7 +51,7 @@ struct TabBarView: View {
 
 
 #Preview {
-    TabBarView()
+    TabBarView(viewModel: TabBarViewModel())
 }
 
 

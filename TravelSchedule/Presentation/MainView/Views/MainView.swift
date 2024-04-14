@@ -10,7 +10,7 @@ import SwiftUI
 struct MainView: View {
     
     // MARK: - Properties
-//    @EnvironmentObject var coordinator: BaseCoordinator
+    @EnvironmentObject var coordinator: BaseCoordinator
     @EnvironmentObject var viewModel: MainViewModel
     
     @State var from: String = "Откуда"
@@ -79,7 +79,7 @@ extension MainView {
             HStack {
                 whiteRectangle
                     .padding(.leading, 32)
-                replaceView
+                SwitcherView
                     .padding(.trailing, 32)
             }
         }
@@ -93,7 +93,7 @@ extension MainView {
     
     private var whiteRectangle: some View {
         RoundedRectangle(cornerRadius: 20)
-            .fill(Color.YP.blue)
+            .fill(Color.YP.whiteU)
             .frame(height: 96)
             .overlay(
                 VStack(alignment: .leading, spacing: 28) {
@@ -106,7 +106,7 @@ extension MainView {
     private var selectionCityFromButton: some View {
         
         Button {
-//            coordinator.selectingCityFrom()
+            coordinator.selectingCityFrom()
         } label: {
             Text(viewModel.selectedStationFrom?.name == nil
                  ? from
@@ -131,7 +131,7 @@ extension MainView {
     private var selectingCityToButton: some View {
         
         Button {
-//            coordinator.selectingCityTo()
+            coordinator.selectingCityTo()
         } label: {
             Text(viewModel.selectedStationTo?.name == nil
                  ? to
@@ -153,22 +153,23 @@ extension MainView {
         }
     }
     
-    private var replaceView: some View {
+    private var SwitcherView: some View {
         Circle()
             .fill(Color.YP.whiteU)
             .frame(width: 36)
+            .disabled((viewModel.selectedStationTo == nil) && (viewModel.selectedStationFrom == nil))
             .overlay(
                 Image(systemName: "arrow.2.squarepath")
-                    .foregroundStyle(Color.YP.whiteU)
+                    .foregroundStyle(Color.YP.blue)
                     .onTapGesture {
-                        viewModel.replaceStations()
+                        viewModel.switchStations()
                     }
             )
     }
     
     private var searchButton: some View {
         Button {
-//            coordinator.listOfCarriers()
+            coordinator.listOfCarriers()
         } label: {
             CustomButton(
                 title: "Найти",
@@ -184,11 +185,3 @@ extension MainView {
 #Preview {
     MainView()
 }
-
-
-#Preview {
-    MainView()
-}
-
-
-

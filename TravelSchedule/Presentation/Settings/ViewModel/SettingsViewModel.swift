@@ -10,8 +10,14 @@ import Foundation
 
 final class SettingsViewModel: ObservableObject {
     
-    @Published var isDarkTheme: Bool = false
+    @Published var isDarkMode: Bool = false 
    
-    // need implement via UserDefaults
+    init() {
+        self.isDarkMode = UserDefaults.standard.bool(forKey: "isDarkMode")
+    }
+    
+    func upDateUserDefaults(newValue: Bool){
+        UserDefaults.standard.set(newValue, forKey: "isDarkMode")
+    }
 
 }

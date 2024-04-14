@@ -13,7 +13,7 @@ struct SettingsView: View {
     
     var body: some View {
         VStack {
-            Toggle("Темная тема", isOn: $viewModel.isDarkTheme)
+            Toggle("Темная тема", isOn: $viewModel.isDarkMode)
                 .toggleStyle(.switch)
                 .padding()
                 .tint(.YP.blue)
