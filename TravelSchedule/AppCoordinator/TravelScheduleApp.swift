@@ -20,10 +20,6 @@ struct TravelSchedule: App {
             bodyContentView(
                 launchState: AppLauncher.LaunchState.loading
             )
-
-//            .preferredColorScheme(
-//                UserDefaults.standard.bool(forKey: "isDarkMode") ? .dark : .light
-//            )
         }
         .onChange(of: scenePhase) { newPhase in
             if newPhase == .inactive {
