@@ -34,8 +34,6 @@ struct InfoCellAboutCarrier: View {
                         alignment: .leading
                     )
             }
-            Image(systemName: "checkmark.square.fill")
-                .foregroundStyle(Color.YP.black)
         }
     }
 }

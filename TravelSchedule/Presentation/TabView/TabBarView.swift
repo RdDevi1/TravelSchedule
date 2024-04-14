@@ -20,30 +20,30 @@ struct TabBarView: View {
         NavigationView {
             VStack {
                 TabView(selection: $selectedTab) {
-//                    ZStack {
+                    ZStack {
                         VStack(spacing: 0) {
                             MainView()
                             Spacer()
                             Divider()
                         }
-//                    }
+                    }
                     .tabItem {
                         Image(systemName: "arrow.up.message.fill")
                     }
                     .tag(0)
                     
-//                    ZStack {
+                    ZStack {
                         VStack(spacing: 0) {
                             SettingsView()
                             Divider()
                         }
-//                    }
+                    }
                     .tabItem {
                         Image(systemName: "gearshape.fill")
                     }
                     .tag(1)
                 }
-                .tint(Color.black)
+                .tint(Color.YP.black)
             }
         }
     }

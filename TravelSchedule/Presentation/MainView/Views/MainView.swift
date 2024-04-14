@@ -11,7 +11,7 @@ struct MainView: View {
     
     // MARK: - Properties
     @EnvironmentObject var coordinator: BaseCoordinator
-    @EnvironmentObject var viewModel: MainViewModel
+    @EnvironmentObject var mainViewModel: MainViewModel
     
     @State var from: String = "Откуда"
     @State var to: String = "Куда"
@@ -35,8 +35,8 @@ struct MainView: View {
                     .frame(height: 128)
                     .padding(.top, 44)
                 
-                if viewModel.selectedStationTo != nil
-                    && viewModel.selectedStationFrom != nil {
+                if mainViewModel.selectedStationTo != nil
+                    && mainViewModel.selectedStationFrom != nil {
                     searchButton
                         .onTapGesture {
                             print("Показать список")
@@ -58,10 +58,10 @@ extension MainView {
     private var scrollWithStories: some View {
         ScrollView(.horizontal, showsIndicators: false) {
             LazyHGrid(rows: rows, alignment: .center, spacing: 12) {
-                ForEach(viewModel.stories) { story in
+                ForEach(mainViewModel.stories) { story in
                     StoryView(story: story, isNew: true)
                         .onTapGesture {
-                            viewModel.selectedStory = story
+                            mainViewModel.selectedStory = story
                         }
                 }
             }
@@ -108,9 +108,9 @@ extension MainView {
         Button {
             coordinator.selectingCityFrom()
         } label: {
-            Text(viewModel.selectedStationFrom?.name == nil
+            Text(mainViewModel.selectedStationFrom?.name == nil
                  ? from
-                 : viewModel.selectedStationFrom?.name ?? ""
+                 : mainViewModel.selectedStationFrom?.name ?? ""
             )
             .frame(
                 maxWidth: .infinity,
@@ -118,7 +118,7 @@ extension MainView {
             )
             .font(.system(size: 17))
             .foregroundStyle(
-                viewModel.selectedStationFrom?.name == nil
+                mainViewModel.selectedStationFrom?.name == nil
                 ? Color.YP.gray
                 : Color.YP.blackU
             )
@@ -133,9 +133,9 @@ extension MainView {
         Button {
             coordinator.selectingCityTo()
         } label: {
-            Text(viewModel.selectedStationTo?.name == nil
+            Text(mainViewModel.selectedStationTo?.name == nil
                  ? to
-                 : viewModel.selectedStationTo?.name ?? ""
+                 : mainViewModel.selectedStationTo?.name ?? ""
             )
             .frame(
                 maxWidth: .infinity,
@@ -143,7 +143,7 @@ extension MainView {
             )
             .font(.system(size: 17))
             .foregroundStyle(
-                viewModel.selectedStationTo?.name == nil
+                mainViewModel.selectedStationTo?.name == nil
                 ? Color.YP.gray
                 : Color.YP.blackU
             )
@@ -157,12 +157,12 @@ extension MainView {
         Circle()
             .fill(Color.YP.whiteU)
             .frame(width: 36)
-            .disabled((viewModel.selectedStationTo == nil) && (viewModel.selectedStationFrom == nil))
+            .disabled((mainViewModel.selectedStationTo == nil) && (mainViewModel.selectedStationFrom == nil))
             .overlay(
                 Image(systemName: "arrow.2.squarepath")
                     .foregroundStyle(Color.YP.blue)
                     .onTapGesture {
-                        viewModel.switchStations()
+                        mainViewModel.switchStations()
                     }
             )
     }

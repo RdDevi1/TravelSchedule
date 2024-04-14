@@ -130,22 +130,6 @@
 			path = AppCoordinator;
 			sourceTree = "<group>";
 		};
-		C40BB0C12BCC361B00C8C988 /* SelectStation */ = {
-			isa = PBXGroup;
-			children = (
-				C40BB0C22BCC365F00C8C988 /* SelectionStationView.swift */,
-			);
-			path = SelectStation;
-			sourceTree = "<group>";
-		};
-		C40BB0C42BCC367600C8C988 /* SelectCityView */ = {
-			isa = PBXGroup;
-			children = (
-				C40BB0C52BCC36A000C8C988 /* SelectionCityView.swift */,
-			);
-			path = SelectCityView;
-			sourceTree = "<group>";
-		};
 		C4AE6E9B2B9DFC100024112A /* Servicies */ = {
 			isa = PBXGroup;
 			children = (
@@ -250,15 +234,15 @@
 		C4E1E1832BCAD1EC00D9405A /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
-				C40BB0C42BCC367600C8C988 /* SelectCityView */,
-				C40BB0C12BCC361B00C8C988 /* SelectStation */,
-				C4E1E1902BCAD73300D9405A /* MainView */,
-				C4E1E18F2BCAD72100D9405A /* TabView */,
-				C4E1E1852BCAD1F600D9405A /* Settings */,
-				C40BB0C72BCC36C000C8C988 /* ListOfCarriersView.swift */,
-				C40BB0C92BCC36DA00C8C988 /* FiltersView.swift */,
 				C40BB0CB2BCC371600C8C988 /* CarrierDetailView.swift */,
+				C40BB0C92BCC36DA00C8C988 /* FiltersView.swift */,
+				C40BB0C72BCC36C000C8C988 /* ListOfCarriersView.swift */,
+				C40BB0C52BCC36A000C8C988 /* SelectionCityView.swift */,
+				C40BB0C22BCC365F00C8C988 /* SelectionStationView.swift */,
 				C40BB0CD2BCC374300C8C988 /* StoriesView.swift */,
+				C4E1E1902BCAD73300D9405A /* MainView */,
+				C4E1E1852BCAD1F600D9405A /* Settings */,
+				C4E1E18F2BCAD72100D9405A /* TabView */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
