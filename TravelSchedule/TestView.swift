@@ -101,7 +101,7 @@ func getRoutes() {
     
     Task {
         do {
-            let routes = try await service.getRoutes(from: City.moscow, to: City.tumen, limit: 1)
+            let routes = try await service.getRoutes(from: Cities.moscow, to: Cities.tumen, limit: 1)
             print(routes)
         } catch {
             print("Ошибка  \(error)")
@@ -119,7 +119,7 @@ func getScheduleFor() {
     
     Task {
         do {
-            let schedule = try await service.getScheduleFor(station: Station.svo, limit: 5, date: "2024-03-12")
+            let schedule = try await service.getScheduleFor(station: cityStations.svo, limit: 5, date: "2024-03-12")
             print(schedule)
         } catch {
             print("Ошибка  \(error)")

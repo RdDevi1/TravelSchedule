@@ -13,6 +13,7 @@ struct TabBarView: View {
     @State private var selectedTab = 0
     
     var body: some View {
+        NavigationView {
             VStack {
                 TabView(selection: $selectedTab) {
 //                    ZStack {
@@ -40,7 +41,7 @@ struct TabBarView: View {
                 }
                 .tint(Color.black)
             }
-        
+        }
     }
 }
 

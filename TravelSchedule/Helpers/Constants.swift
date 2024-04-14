@@ -14,12 +14,12 @@ enum Constants {
     
 }
 
-enum City {
+enum Cities {
     static let tumen = "c55"
     static let moscow = "c213"
 }
 
-enum Station {
+enum cityStations {
     static let svo = "s9600213"
 }
 

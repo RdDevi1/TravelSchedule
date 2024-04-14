@@ -8,14 +8,15 @@
 import SwiftUI
 
 struct SettingsView: View {
-    
-    @State private var isDarkTheme = false
+
+    @StateObject var viewModel = SettingsViewModel()
     
     var body: some View {
         VStack {
-            Toggle("Темная тема", isOn: $isDarkTheme)
+            Toggle("Темная тема", isOn: $viewModel.isDarkTheme)
                 .toggleStyle(.switch)
                 .padding()
+                .tint(.YP.blue)
             
             HStack {
                 Text("Пользовательское соглашение")
