@@ -8,34 +8,46 @@
 import SwiftUI
 
 struct SettingsView: View {
-
-    @StateObject var viewModel = SettingsViewModel()
+    
+    @Binding var isDarkModeOn: Bool
+    @Environment(\.openURL) var openURL
     
     var body: some View {
-        VStack {
-            Toggle("Темная тема", isOn: $viewModel.isDarkMode)
-                .toggleStyle(.switch)
-                .padding()
-                .tint(.YP.blue)
-            
-            HStack {
-                Text("Пользовательское соглашение")
-                Spacer()
-                Image(systemName: "chevron.right")
-            }
-            .padding()
-            Spacer()
-            Text("Приложение использует API Яндекс.Расписания")
-                .font(.system(size: 12))
+        ZStack {
+            Color.YP.white
+            VStack {
+                HStack {
+                    Toggle(isOn: $isDarkModeOn, label: {
+                        Text("Тёмная тема")
+                            .foregroundStyle(Color.YP.black)
+                            .font(.system(size: 17))
+                    })
+                    .tint(.blue)
+                }
+                .padding(.horizontal, 16)
                 
-            Text("Версия .....")
-                .font(.system(size: 12))
-                .padding(10)
+                SelectionCell(
+                    action: {
+                        if let url = URL(string: Constants.userAgreement)  {
+                            openURL(url)
+                        }
+                    },
+                    title: "Пользовательское соглашение"
+                )
+                
+                Spacer()
+                
+                VStack(spacing: 16) {
+                    Text("Приложение использует API «Яндекс.Расписания»")
+                        .foregroundStyle(Color.YP.black)
+                        .font(.system(size: 12))
+                    Text("Версия .......")
+                        .foregroundStyle(Color.YP.black)
+                        .font(.system(size: 12))
+                }
+                .padding(.horizontal, 16)
+            }
+            .padding(.vertical, 24)
         }
-        .padding()
     }
-}
-
-#Preview {
-    SettingsView()
 }

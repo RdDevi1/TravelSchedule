@@ -12,4 +12,5 @@ enum Constants {
     
     static let apiKey = "YOUR API KEY"
     
+    static let userAgreement = "https://yandex.ru/legal/practicum_offer/"
 }

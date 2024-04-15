@@ -29,16 +29,21 @@ struct FiltersView: View {
     // MARK: - Body
     
     var body: some View {
-        ScrollView {
-            navBar
-                .padding(.bottom, 16)
-            firstTitle
-            selectionTime
-            secondTitle
-            withOrWithoutTransfersView
-            applyButton
-                .toolbar(.hidden, for: .navigationBar)
-        }
+//        ScrollView {
+            VStack {
+                navBar
+                    .padding(.bottom, 16)
+                firstTitle
+                selectionTime
+                secondTitle
+                withOrWithoutTransfersView
+                Spacer()
+                applyButton
+                    
+                    .toolbar(.hidden, for: .navigationBar)
+                
+            }
+//        }
         .scrollIndicators(.hidden)
         .padding(.horizontal, 16)
     }

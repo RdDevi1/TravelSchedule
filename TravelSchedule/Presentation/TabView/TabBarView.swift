@@ -10,6 +10,9 @@ import OpenAPIURLSession
 import OpenAPIRuntime
 
 struct TabBarView: View {
+    
+    @AppStorage("appTheme") private var isDarkModeOn = false
+    
     @EnvironmentObject var coordinator: BaseCoordinator
     @StateObject var viewModel: TabBarViewModel
     @StateObject var mainViewModel = MainViewModel(stories: [], cities: [])
@@ -34,7 +37,7 @@ struct TabBarView: View {
                     
                     ZStack {
                         VStack(spacing: 0) {
-                            SettingsView()
+                            SettingsView(isDarkModeOn: $isDarkModeOn)
                             Divider()
                         }
                     }
@@ -44,15 +47,16 @@ struct TabBarView: View {
                     .tag(1)
                 }
                 .tint(Color.YP.black)
+                .preferredColorScheme(isDarkModeOn ? .dark : .light)
             }
         }
     }
 }
 
 
-#Preview {
-    TabBarView(viewModel: TabBarViewModel())
-}
+//#Preview {
+//    TabBarView(viewModel: TabBarViewModel())
+//}
 
 
 //MARK: - Actions
