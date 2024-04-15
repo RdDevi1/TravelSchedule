@@ -7,6 +7,16 @@
 
 import SwiftUI
 
+protocol SchedulesNavigator {
+    func selectingCityFrom()
+    func selectingStationFrom()
+    func selectingCityTo()
+    func selectingStationTo()
+    func listOfCarriers()
+    func filters()
+    func carrierDetail()
+}
+
 final class BaseCoordinator: ObservableObject {
     @Published var path = NavigationPath()
     @Published var presentSheetItem: DestinationFlowPage?
@@ -19,16 +29,6 @@ final class BaseCoordinator: ObservableObject {
     func removeLast() {
         path.removeLast()
     }
-}
-
-protocol SchedulesNavigator {
-    func selectingCityFrom()
-    func selectingStationFrom()
-    func selectingCityTo()
-    func selectingStationTo()
-    func listOfCarriers()
-    func filters()
-    func carrierDetail()
 }
 
 extension BaseCoordinator: SchedulesNavigator {
@@ -59,46 +59,6 @@ extension BaseCoordinator: SchedulesNavigator {
     
     func carrierDetail() {
         path.append(DestinationFlowPage.carrierDetail)
-    }
-}
-
-enum DestinationFlowPage: Hashable, Identifiable {
-    static func == (lhs: DestinationFlowPage, rhs: DestinationFlowPage) -> Bool {
-        return lhs.hashValue == rhs.hashValue
-    }
-
-    case tabBar
-    case selectingCityFrom
-    case selectingStationFrom
-    case selectingCityTo
-    case selectingStationTo
-    case listOfCarriers
-    case filters
-    case carrierDetail
-    
-    var id: String {
-        String(describing: self)
-    }
-    
-    func hash(into hasher: inout Hasher) {
-        switch self {
-        case .tabBar:
-            hasher.combine("tabBar")
-        case .selectingCityFrom:
-            hasher.combine("selectingCityFrom")
-        case .selectingStationFrom:
-            hasher.combine("selectingStationFrom")
-        case .selectingCityTo:
-            hasher.combine("selectingCityTo")
-        case .selectingStationTo:
-            hasher.combine("selectingStationTo")
-        case .listOfCarriers:
-            hasher.combine("listOfCarriers")
-        case .filters:
-            hasher.combine("filters")
-        case .carrierDetail:
-            hasher.combine("carrierDetail")
-        }
     }
 }
 

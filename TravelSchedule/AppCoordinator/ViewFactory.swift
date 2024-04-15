@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-class ViewFactory: ObservableObject {
+final class ViewFactory: ObservableObject {
    
     @ViewBuilder static func viewForDestination(_ destination: DestinationFlowPage) -> some View {
         switch destination {

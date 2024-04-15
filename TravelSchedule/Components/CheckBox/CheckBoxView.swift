@@ -22,7 +22,6 @@ struct CheckBoxView: View {
     }
 }
 
-// 6. Define a custom toggle style to make our Toggle look like a checkbox
 struct CheckboxToggleStyle: ToggleStyle {
     func makeBody(configuration: Self.Configuration) -> some View {
     HStack {
@@ -36,9 +35,3 @@ struct CheckboxToggleStyle: ToggleStyle {
     }
   }
 }
-
-
-//#Preview {
-//    CheckBoxView()
-//}
-

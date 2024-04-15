@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-class AppLauncher: Observable {
+final class AppLauncher: Observable {
     enum LaunchState {
         case loading
     }
