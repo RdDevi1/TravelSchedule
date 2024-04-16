@@ -26,7 +26,7 @@ struct MainView: View {
         
         ZStack {
             
-            Color.YP.white
+            Color.YP.white.ignoresSafeArea()
             
             ScrollView {
                 scrollWithStories

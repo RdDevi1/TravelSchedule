@@ -29,7 +29,8 @@ struct FiltersView: View {
     // MARK: - Body
     
     var body: some View {
-//        ScrollView {
+        ZStack {
+            Color.YP.white.ignoresSafeArea()
             VStack {
                 navBar
                     .padding(.bottom, 16)
@@ -39,11 +40,9 @@ struct FiltersView: View {
                 withOrWithoutTransfersView
                 Spacer()
                 applyButton
-                    
                     .toolbar(.hidden, for: .navigationBar)
-                
             }
-//        }
+        }
         .scrollIndicators(.hidden)
         .padding(.horizontal, 16)
     }

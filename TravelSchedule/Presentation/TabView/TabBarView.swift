@@ -48,15 +48,18 @@ struct TabBarView: View {
                 }
                 .tint(Color.YP.black)
                 .preferredColorScheme(isDarkModeOn ? .dark : .light)
+                .toolbar(content: {
+                    Color.YP.white
+                })
             }
         }
     }
 }
 
 
-//#Preview {
-//    TabBarView(viewModel: TabBarViewModel())
-//}
+#Preview {
+    TabBarView(viewModel: TabBarViewModel())
+}
 
 
 //MARK: - Actions

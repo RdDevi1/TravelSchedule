@@ -19,6 +19,7 @@ struct ListOfCarriersView: View {
     var body: some View {
         
         ZStack {
+            Color.YP.white.ignoresSafeArea()
             VStack {
                 navBar
                     .padding(.top, 11)

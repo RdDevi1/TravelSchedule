@@ -42,6 +42,8 @@ struct SelectionCityView: View {
     var body: some View {
         
         ZStack {
+            Color.YP.white.ignoresSafeArea()
+            
             if searchResultCity == [] {
                 Text("Город не найден")
                     .font(.system(size: 24, weight: .bold))

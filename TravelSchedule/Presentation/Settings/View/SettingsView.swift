@@ -14,7 +14,7 @@ struct SettingsView: View {
     
     var body: some View {
         ZStack {
-            Color.YP.white
+            Color.YP.white.ignoresSafeArea()
             VStack {
                 HStack {
                     Toggle(isOn: $isDarkModeOn, label: {

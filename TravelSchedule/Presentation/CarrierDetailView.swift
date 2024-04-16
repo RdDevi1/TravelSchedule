@@ -18,6 +18,7 @@ struct CarrierDetailView: View {
     
     var body: some View {
         VStack {
+            Color.YP.white.ignoresSafeArea()
             navBar
             VStack {
                 Image("brandIcon")

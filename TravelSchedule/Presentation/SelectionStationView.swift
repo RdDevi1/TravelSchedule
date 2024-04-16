@@ -44,6 +44,7 @@ struct SelectionStationView: View {
     var body: some View {
         
         ZStack {
+            Color.YP.white.ignoresSafeArea()
             
             if searchResultStation == [] {
                 Text("Станция не найдена")
