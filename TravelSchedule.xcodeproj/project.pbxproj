@@ -17,7 +17,6 @@
 		C40BB0CA2BCC36DA00C8C988 /* FiltersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40BB0C92BCC36DA00C8C988 /* FiltersView.swift */; };
 		C40BB0CC2BCC371600C8C988 /* CarrierDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40BB0CB2BCC371600C8C988 /* CarrierDetailView.swift */; };
 		C40BB0CE2BCC374300C8C988 /* StoriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40BB0CD2BCC374300C8C988 /* StoriesView.swift */; };
-		C40BB0D02BCC380600C8C988 /* TabBarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40BB0CF2BCC380600C8C988 /* TabBarViewModel.swift */; };
 		C40BB0D22BCC383800C8C988 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40BB0D12BCC383800C8C988 /* ErrorView.swift */; };
 		C40BB0D42BCC387E00C8C988 /* CustomNavBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40BB0D32BCC387E00C8C988 /* CustomNavBar.swift */; };
 		C40BB0D62BCC389F00C8C988 /* SelectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40BB0D52BCC389F00C8C988 /* SelectionCell.swift */; };
@@ -51,6 +50,7 @@
 		C4E1E19B2BCAD91E00D9405A /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4E1E19A2BCAD91E00D9405A /* MainViewModel.swift */; };
 		C4E1E1A62BCBCB1D00D9405A /* MockModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4E1E1A52BCBCB1D00D9405A /* MockModels.swift */; };
 		C4E1E1AA2BCBCDE900D9405A /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4E1E1A92BCBCDE900D9405A /* CustomButton.swift */; };
+		C4EB71CE2BD02B130028319B /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4EB71CD2BD02B130028319B /* SettingsViewModel.swift */; };
 		C4FA81D42B9DF74300AA7C70 /* openapi-generator-config.yaml in Resources */ = {isa = PBXBuildFile; fileRef = C4FA81D32B9DF74300AA7C70 /* openapi-generator-config.yaml */; };
 		C4FA81DF2B9DF7DD00AA7C70 /* OpenAPIRuntime in Frameworks */ = {isa = PBXBuildFile; productRef = C4FA81DE2B9DF7DD00AA7C70 /* OpenAPIRuntime */; };
 		C4FA81E22B9DF7EB00AA7C70 /* OpenAPIURLSession in Frameworks */ = {isa = PBXBuildFile; productRef = C4FA81E12B9DF7EB00AA7C70 /* OpenAPIURLSession */; };
@@ -67,7 +67,6 @@
 		C40BB0C92BCC36DA00C8C988 /* FiltersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiltersView.swift; sourceTree = "<group>"; };
 		C40BB0CB2BCC371600C8C988 /* CarrierDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarrierDetailView.swift; sourceTree = "<group>"; };
 		C40BB0CD2BCC374300C8C988 /* StoriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoriesView.swift; sourceTree = "<group>"; };
-		C40BB0CF2BCC380600C8C988 /* TabBarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewModel.swift; sourceTree = "<group>"; };
 		C40BB0D12BCC383800C8C988 /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
 		C40BB0D32BCC387E00C8C988 /* CustomNavBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavBar.swift; sourceTree = "<group>"; };
 		C40BB0D52BCC389F00C8C988 /* SelectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionCell.swift; sourceTree = "<group>"; };
@@ -103,6 +102,7 @@
 		C4E1E19A2BCAD91E00D9405A /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		C4E1E1A52BCBCB1D00D9405A /* MockModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockModels.swift; sourceTree = "<group>"; };
 		C4E1E1A92BCBCDE900D9405A /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
+		C4EB71CD2BD02B130028319B /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		C4FA81D32B9DF74300AA7C70 /* openapi-generator-config.yaml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = "openapi-generator-config.yaml"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -176,18 +176,18 @@
 			isa = PBXGroup;
 			children = (
 				C40BB0B62BCC345300C8C988 /* AppCoordinator */,
-				C4E1E1A22BCBCAFB00D9405A /* Models */,
-				C4464F302BC298D900E7273F /* TestView.swift */,
 				C4D90D5C2B949CF4001BC6DA /* Assets.xcassets */,
 				C4E1E16F2BCACAAA00D9405A /* Components */,
 				C4E1E1782BCACB9900D9405A /* Extensions */,
 				C4AE6E9F2B9DFC800024112A /* Helpers */,
 				C4E1E16C2BCAC93700D9405A /* Info.plist */,
 				C4E1E16A2BCAC85100D9405A /* LaunchScreen.storyboard */,
+				C4E1E1A22BCBCAFB00D9405A /* Models */,
 				C4FA81D22B9DF71E00AA7C70 /* OpenAPI */,
 				C4E1E1832BCAD1EC00D9405A /* Presentation */,
 				C4D90D5E2B949CF4001BC6DA /* Preview Content */,
 				C4AE6E9B2B9DFC100024112A /* Servicies */,
+				C4464F302BC298D900E7273F /* TestView.swift */,
 			);
 			path = TravelSchedule;
 			sourceTree = "<group>";
@@ -203,15 +203,16 @@
 		C4E1E16F2BCACAAA00D9405A /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				C4E1E1A82BCBCDD600D9405A /* Buttons */,
-				C4E1E1722BCACABE00D9405A /* CheckBox */,
-				C4E1E1802BCAD0F600D9405A /* SearchBar.swift */,
-				C40BB0D12BCC383800C8C988 /* ErrorView.swift */,
-				C40BB0D32BCC387E00C8C988 /* CustomNavBar.swift */,
-				C40BB0D52BCC389F00C8C988 /* SelectionCell.swift */,
 				C40BB0D72BCC38BD00C8C988 /* CarrierCell.swift */,
+				C40BB0D32BCC387E00C8C988 /* CustomNavBar.swift */,
+				C40BB0D12BCC383800C8C988 /* ErrorView.swift */,
 				C40BB0D92BCC38D800C8C988 /* FilterCell.swift */,
 				C40BB0DB2BCC38EF00C8C988 /* InfoCellAboutCarrier.swift */,
+				C4E1E1802BCAD0F600D9405A /* SearchBar.swift */,
+				C40BB0D52BCC389F00C8C988 /* SelectionCell.swift */,
+				C40BB0CD2BCC374300C8C988 /* StoriesView.swift */,
+				C4E1E1A82BCBCDD600D9405A /* Buttons */,
+				C4E1E1722BCACABE00D9405A /* CheckBox */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -235,56 +236,30 @@
 		C4E1E1832BCAD1EC00D9405A /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
-				C40BB0CB2BCC371600C8C988 /* CarrierDetailView.swift */,
-				C40BB0C92BCC36DA00C8C988 /* FiltersView.swift */,
-				C40BB0C72BCC36C000C8C988 /* ListOfCarriersView.swift */,
-				C40BB0C52BCC36A000C8C988 /* SelectionCityView.swift */,
-				C40BB0C22BCC365F00C8C988 /* SelectionStationView.swift */,
-				C40BB0CD2BCC374300C8C988 /* StoriesView.swift */,
-				C4E1E1902BCAD73300D9405A /* MainView */,
-				C4E1E1852BCAD1F600D9405A /* Settings */,
+				C4E1E1962BCAD74B00D9405A /* ViewModel */,
+				C4E1E1932BCAD73E00D9405A /* Views */,
 				C4E1E18F2BCAD72100D9405A /* TabView */,
 			);
 			path = Presentation;
-			sourceTree = "<group>";
-		};
-		C4E1E1852BCAD1F600D9405A /* Settings */ = {
-			isa = PBXGroup;
-			children = (
-				C4E1E1872BCAD1FE00D9405A /* View */,
-			);
-			path = Settings;
-			sourceTree = "<group>";
-		};
-		C4E1E1872BCAD1FE00D9405A /* View */ = {
-			isa = PBXGroup;
-			children = (
-				C4464F3B2BC2B87000E7273F /* SettingsView.swift */,
-			);
-			path = View;
 			sourceTree = "<group>";
 		};
 		C4E1E18F2BCAD72100D9405A /* TabView */ = {
 			isa = PBXGroup;
 			children = (
 				C4D90D5A2B949CF2001BC6DA /* TabBarView.swift */,
-				C40BB0CF2BCC380600C8C988 /* TabBarViewModel.swift */,
 			);
 			path = TabView;
-			sourceTree = "<group>";
-		};
-		C4E1E1902BCAD73300D9405A /* MainView */ = {
-			isa = PBXGroup;
-			children = (
-				C4E1E1962BCAD74B00D9405A /* ViewModel */,
-				C4E1E1932BCAD73E00D9405A /* Views */,
-			);
-			path = MainView;
 			sourceTree = "<group>";
 		};
 		C4E1E1932BCAD73E00D9405A /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				C4464F3B2BC2B87000E7273F /* SettingsView.swift */,
+				C40BB0CB2BCC371600C8C988 /* CarrierDetailView.swift */,
+				C40BB0C92BCC36DA00C8C988 /* FiltersView.swift */,
+				C40BB0C72BCC36C000C8C988 /* ListOfCarriersView.swift */,
+				C40BB0C52BCC36A000C8C988 /* SelectionCityView.swift */,
+				C40BB0C22BCC365F00C8C988 /* SelectionStationView.swift */,
 				C4464F382BC2A49E00E7273F /* StoryView.swift */,
 				C4464F3E2BC2BC1600E7273F /* MainView.swift */,
 			);
@@ -295,6 +270,7 @@
 			isa = PBXGroup;
 			children = (
 				C4E1E19A2BCAD91E00D9405A /* MainViewModel.swift */,
+				C4EB71CD2BD02B130028319B /* SettingsViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -413,7 +389,6 @@
 				C40BB0B92BCC346E00C8C988 /* TravelScheduleApp.swift in Sources */,
 				C4D90D5B2B949CF2001BC6DA /* TabBarView.swift in Sources */,
 				C4AE6EBA2B9F05BB0024112A /* SearchRouteService.swift in Sources */,
-				C40BB0D02BCC380600C8C988 /* TabBarViewModel.swift in Sources */,
 				C4AE6E9D2B9DFC320024112A /* NearestStationsService.swift in Sources */,
 				C40BB0D22BCC383800C8C988 /* ErrorView.swift in Sources */,
 				C40BB0DA2BCC38D800C8C988 /* FilterCell.swift in Sources */,
@@ -423,6 +398,7 @@
 				C4AE6EB72B9F04790024112A /* AuthenticationMiddleware.swift in Sources */,
 				C4E1E1A62BCBCB1D00D9405A /* MockModels.swift in Sources */,
 				C4AE6EA12B9DFC8D0024112A /* Constants.swift in Sources */,
+				C4EB71CE2BD02B130028319B /* SettingsViewModel.swift in Sources */,
 				C40BB0BE2BCC34F400C8C988 /* AppLauncher.swift in Sources */,
 				C40BB0CC2BCC371600C8C988 /* CarrierDetailView.swift in Sources */,
 				C40BB0D62BCC389F00C8C988 /* SelectionCell.swift in Sources */,

@@ -11,6 +11,8 @@ final class MainViewModel: ObservableObject {
     
     // MARK: - Properties
 
+    @Published var state = AppState.success
+    
     @Published var stories: [Story]
     @Published var cities: [City]
     

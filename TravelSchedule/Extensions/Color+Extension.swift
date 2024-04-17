@@ -13,6 +13,7 @@ extension Color {
     
     struct YP {
         static let white = Color("whiteMain")
+        static let whiteMedium = Color("whiteMedium")
         static let whiteU = Color("whiteU")
         static let black = Color("blackMain")
         static let blackU = Color("blackU")
@@ -20,5 +21,6 @@ extension Color {
         static let blue = Color("blueU")
         static let gray = Color("grayU")
         static let lightGray = Color("lightGrayU")
+        static let blackMedium = Color("blackMedium")        
     }
 }

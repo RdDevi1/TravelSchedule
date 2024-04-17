@@ -13,6 +13,7 @@ struct FiltersView: View {
     
     @EnvironmentObject var coordinator: BaseCoordinator
     @EnvironmentObject var viewModel: MainViewModel
+    @State var isPresentedError = false
     
     private let massiveTime: [String] = [
         "Утро 06:00 - 12:00",
@@ -45,6 +46,9 @@ struct FiltersView: View {
         }
         .scrollIndicators(.hidden)
         .padding(.horizontal, 16)
+        .sheet(isPresented: $isPresentedError) {
+            ErrorView(error: .noInternet)
+        }
     }
 }
 

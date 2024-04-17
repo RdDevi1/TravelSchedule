@@ -11,7 +11,7 @@ struct MainView: View {
     
     // MARK: - Properties
     @EnvironmentObject var coordinator: BaseCoordinator
-    @EnvironmentObject var mainViewModel: MainViewModel
+    @EnvironmentObject var viewModel: MainViewModel
     
     @State var from: String = "Откуда"
     @State var to: String = "Куда"
@@ -23,31 +23,35 @@ struct MainView: View {
     // MARK: - Body
     
     var body: some View {
-        
-        ZStack {
-            
-            Color.YP.white.ignoresSafeArea()
-            
-            ScrollView {
-                scrollWithStories
-                    .padding(.top, 24)
-                fromTo
-                    .frame(height: 128)
-                    .padding(.top, 44)
+        switch viewModel.state {
+        case .failed(let error):
+            ErrorView(error: error)
+        case .success:
+            ZStack {
                 
-                if mainViewModel.selectedStationTo != nil
-                    && mainViewModel.selectedStationFrom != nil {
-                    searchButton
-                        .onTapGesture {
-                            print("Показать список")
-                        }
-                        .padding(.top, 16)
+                Color.YP.white.ignoresSafeArea()
+                
+                ScrollView {
+                    scrollWithStories
+                        .padding(.top, 24)
+                    fromTo
+                        .frame(height: 128)
+                        .padding(.top, 44)
+                    
+                    if viewModel.selectedStationTo != nil
+                        && viewModel.selectedStationFrom != nil {
+                        searchButton
+                            .onTapGesture {
+                                print("Показать список")
+                            }
+                            .padding(.top, 16)
+                    }
+                    Spacer()
                 }
-                Spacer()
+                .scrollIndicators(.hidden)
             }
-            .scrollIndicators(.hidden)
+            .toolbar(.hidden, for: .navigationBar)
         }
-        .toolbar(.hidden, for: .navigationBar)
     }
 }
 
@@ -58,10 +62,10 @@ extension MainView {
     private var scrollWithStories: some View {
         ScrollView(.horizontal, showsIndicators: false) {
             LazyHGrid(rows: rows, alignment: .center, spacing: 12) {
-                ForEach(mainViewModel.stories) { story in
+                ForEach(viewModel.stories) { story in
                     StoryView(story: story, isNew: true)
                         .onTapGesture {
-                            mainViewModel.selectedStory = story
+                            viewModel.selectedStory = story
                         }
                 }
             }
@@ -108,9 +112,9 @@ extension MainView {
         Button {
             coordinator.selectingCityFrom()
         } label: {
-            Text(mainViewModel.selectedStationFrom?.name == nil
+            Text(viewModel.selectedStationFrom?.name == nil
                  ? from
-                 : mainViewModel.selectedStationFrom?.name ?? ""
+                 : viewModel.selectedStationFrom?.name ?? ""
             )
             .frame(
                 maxWidth: .infinity,
@@ -118,7 +122,7 @@ extension MainView {
             )
             .font(.system(size: 17))
             .foregroundStyle(
-                mainViewModel.selectedStationFrom?.name == nil
+                viewModel.selectedStationFrom?.name == nil
                 ? Color.YP.gray
                 : Color.YP.blackU
             )
@@ -133,9 +137,9 @@ extension MainView {
         Button {
             coordinator.selectingCityTo()
         } label: {
-            Text(mainViewModel.selectedStationTo?.name == nil
+            Text(viewModel.selectedStationTo?.name == nil
                  ? to
-                 : mainViewModel.selectedStationTo?.name ?? ""
+                 : viewModel.selectedStationTo?.name ?? ""
             )
             .frame(
                 maxWidth: .infinity,
@@ -143,7 +147,7 @@ extension MainView {
             )
             .font(.system(size: 17))
             .foregroundStyle(
-                mainViewModel.selectedStationTo?.name == nil
+                viewModel.selectedStationTo?.name == nil
                 ? Color.YP.gray
                 : Color.YP.blackU
             )
@@ -157,12 +161,12 @@ extension MainView {
         Circle()
             .fill(Color.YP.whiteU)
             .frame(width: 36)
-            .disabled((mainViewModel.selectedStationTo == nil) && (mainViewModel.selectedStationFrom == nil))
+            .disabled((viewModel.selectedStationTo == nil) && (viewModel.selectedStationFrom == nil))
             .overlay(
                 Image(systemName: "arrow.2.squarepath")
                     .foregroundStyle(Color.YP.blue)
                     .onTapGesture {
-                        mainViewModel.switchStations()
+                        viewModel.switchStations()
                     }
             )
     }

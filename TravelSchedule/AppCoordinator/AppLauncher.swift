@@ -7,6 +7,11 @@
 
 import SwiftUI
 
+enum AppState {
+    case failed(ErrorType)
+    case success
+}
+
 final class AppLauncher: Observable {
     enum LaunchState {
         case loading

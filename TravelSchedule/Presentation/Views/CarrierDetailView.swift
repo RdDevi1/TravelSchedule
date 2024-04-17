@@ -17,8 +17,21 @@ struct CarrierDetailView: View {
     // MARK: - Body
     
     var body: some View {
+        switch viewModel.state {
+        case .failed(let error):
+            ErrorView(error: error)
+        case .success:
+            successView
+        }
+    }
+}
+
+// MARK: - Extension CarrierDetailView
+
+extension CarrierDetailView {
+    
+    private var successView: some View {
         VStack {
-            Color.YP.white.ignoresSafeArea()
             navBar
             VStack {
                 Image("brandIcon")
@@ -52,11 +65,6 @@ struct CarrierDetailView: View {
                 .toolbar(.hidden, for: .navigationBar)
         }
     }
-}
-
-// MARK: - Extension CarrierDetailView
-
-extension CarrierDetailView {
     
     private var navBar: some View {
         CustomNavBar(

@@ -31,7 +31,7 @@ final class ViewFactory: ObservableObject {
     }
     
     static func getTabBar() -> some View {
-        TabBarView(viewModel: TabBarViewModel())
+        TabBarView()
     }
    
     static func selectingCityFrom() -> some View {

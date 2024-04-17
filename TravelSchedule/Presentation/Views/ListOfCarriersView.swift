@@ -13,26 +13,34 @@ struct ListOfCarriersView: View {
     
     @EnvironmentObject var coordinator: BaseCoordinator
     @EnvironmentObject var viewModel: MainViewModel
+    @State var isPresentedError = false
     
     // MARK: - Body
     
     var body: some View {
-        
-        ZStack {
-            Color.YP.white.ignoresSafeArea()
-            VStack {
-                navBar
-                    .padding(.top, 11)
-                title
-                    .padding(.top, 27)
-                    .padding(.bottom, 16)
-                    .padding(.horizontal, 16)
-                scrollWithCarriers
-                    .padding(.bottom, 0)
-                buttonDetail
-                    .padding(.bottom, 24)
+        switch viewModel.state {
+        case .failed(let error):
+            ErrorView(error: error)
+        case .success:
+            ZStack {
+                Color.YP.white.ignoresSafeArea()
+                VStack {
+                    navBar
+                        .padding(.top, 11)
+                    title
+                        .padding(.top, 27)
+                        .padding(.bottom, 16)
+                        .padding(.horizontal, 16)
+                    scrollWithCarriers
+                        .padding(.bottom, 0)
+                    buttonDetail
+                        .padding(.bottom, 24)
+                }
+                .toolbar(.hidden, for: .navigationBar, .tabBar)
+                .sheet(isPresented: $isPresentedError) {
+                    ErrorView(error: .noInternet)
+                }
             }
-            .toolbar(.hidden, for: .navigationBar, .tabBar)
         }
     }
 }

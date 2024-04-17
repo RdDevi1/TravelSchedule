@@ -14,8 +14,6 @@ struct TabBarView: View {
     @AppStorage("appTheme") private var isDarkModeOn = false
     
     @EnvironmentObject var coordinator: BaseCoordinator
-    @StateObject var viewModel: TabBarViewModel
-    @StateObject var mainViewModel = MainViewModel(stories: [], cities: [])
     
     @State private var selectedTab = 0
     
@@ -52,13 +50,16 @@ struct TabBarView: View {
                     Color.YP.white
                 })
             }
+            .preferredColorScheme(isDarkModeOn ? .dark : .light)
+            .tint(Color.YP.black)
+            .toolbar(.hidden, for: .navigationBar)
         }
     }
 }
 
 
 #Preview {
-    TabBarView(viewModel: TabBarViewModel())
+    TabBarView()
 }
 
 
