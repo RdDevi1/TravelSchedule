@@ -17,15 +17,18 @@ struct TabBarView: View {
     
     @State private var selectedTab = 0
     
+    init() {
+        UITabBar.appearance().backgroundColor = UIColor(Color.YP.white)
+    }
+    
     var body: some View {
         NavigationView {
-            VStack {
                 TabView(selection: $selectedTab) {
                     ZStack {
                         VStack(spacing: 0) {
                             MainView()
-                            Spacer()
                             Divider()
+                                .frame(height: 1)
                         }
                     }
                     .tabItem {
@@ -37,6 +40,7 @@ struct TabBarView: View {
                         VStack(spacing: 0) {
                             SettingsView(isDarkModeOn: $isDarkModeOn)
                             Divider()
+                                .frame(height: 1)
                         }
                     }
                     .tabItem {
@@ -46,13 +50,6 @@ struct TabBarView: View {
                 }
                 .tint(Color.YP.black)
                 .preferredColorScheme(isDarkModeOn ? .dark : .light)
-                .toolbar(content: {
-                    Color.YP.white
-                })
-            }
-            .preferredColorScheme(isDarkModeOn ? .dark : .light)
-            .tint(Color.YP.black)
-            .toolbar(.hidden, for: .navigationBar)
         }
     }
 }

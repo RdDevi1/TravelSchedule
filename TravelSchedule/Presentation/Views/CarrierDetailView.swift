@@ -31,38 +31,42 @@ struct CarrierDetailView: View {
 extension CarrierDetailView {
     
     private var successView: some View {
-        VStack {
-            navBar
+        ZStack {
+            Color.YP.white.ignoresSafeArea()
             VStack {
-                Image("brandIcon")
-                    .resizable()
-                    .scaledToFit()
-                    .frame(
-                        width: UIScreen.main.bounds.width,
-                        height: 104
-                    )
-                Text("OAO \"РЖД\"")
-                    .font(.system(size: 24, weight: .bold))
-                    .foregroundStyle(Color.YP.black)
-                    .frame(
-                        width: UIScreen.main.bounds.width - 32,
-                        alignment: .leading
-                    )
-                    .padding(.bottom, 16)
-                VStack(spacing: 24) {
-                    InfoCellAboutCarrier(
-                        title: "E-mail",
-                        subTitle: "lozgkina@yandex.ru"
-                    )
-                    InfoCellAboutCarrier(
-                        title: "Телефон",
-                        subTitle: "+7(904)329-34-23"
-                    )
+                navBar
+                    .padding(.horizontal, 16)
+                VStack {
+                    Image("brandIcon")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(
+                            width: UIScreen.main.bounds.width,
+                            height: 104
+                        )
+                    Text("OAO \"РЖД\"")
+                        .font(.system(size: 24, weight: .bold))
+                        .foregroundStyle(Color.YP.black)
+                        .frame(
+                            width: UIScreen.main.bounds.width - 32,
+                            alignment: .leading
+                        )
+                        .padding(.bottom, 16)
+                    VStack(spacing: 24) {
+                        InfoCellAboutCarrier(
+                            title: "E-mail",
+                            subTitle: "lozgkina@yandex.ru"
+                        )
+                        InfoCellAboutCarrier(
+                            title: "Телефон",
+                            subTitle: "+7(904)329-34-23"
+                        )
+                    }
                 }
+                .padding(.horizontal, 16)
+                Spacer()
+                    .toolbar(.hidden, for: .navigationBar)
             }
-            .padding(.horizontal, 16)
-            Spacer()
-                .toolbar(.hidden, for: .navigationBar)
         }
     }
     
@@ -74,6 +78,7 @@ extension CarrierDetailView {
             title: "Информация о перевозчике"
         )
         .padding(.top, 11)
+        .padding(.leading, 8)
     }
 }
 
