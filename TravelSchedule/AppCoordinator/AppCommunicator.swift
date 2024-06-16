@@ -15,6 +15,7 @@ protocol SchedulesNavigator {
     func listOfCarriers()
     func filters()
     func carrierDetail()
+    func stories()
 }
 
 final class BaseCoordinator: ObservableObject {
@@ -32,6 +33,9 @@ final class BaseCoordinator: ObservableObject {
 }
 
 extension BaseCoordinator: SchedulesNavigator {
+    func stories() {
+        fullCoverItem = .stories
+    }
     
     func selectingCityFrom() {
         fullCoverItem = .selectingCityFrom

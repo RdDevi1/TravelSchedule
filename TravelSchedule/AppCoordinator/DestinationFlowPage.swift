@@ -20,6 +20,7 @@ enum DestinationFlowPage: Hashable, Identifiable {
     case listOfCarriers
     case filters
     case carrierDetail
+    case stories
     
     var id: String {
         String(describing: self)
@@ -43,6 +44,8 @@ enum DestinationFlowPage: Hashable, Identifiable {
             hasher.combine("filters")
         case .carrierDetail:
             hasher.combine("carrierDetail")
+        case .stories:
+            hasher.combine("stories")
         }
     }
 }
