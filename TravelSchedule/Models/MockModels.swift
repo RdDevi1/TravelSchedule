@@ -7,13 +7,6 @@
 
 import Foundation
 
-struct Story: Hashable, Identifiable {
-    var id = UUID()
-    var images: [String]
-    var title: String
-    var subTitle: String
-}
-
 struct City: Hashable, Identifiable {
     var id = UUID()
     var name: String
@@ -26,28 +19,6 @@ struct Station: Hashable, Identifiable {
 }
 
 enum MockData {
-    
-    static let stories: [Story] = [
-        Story(
-            images: ["1"],
-            title: "Test Test",
-            subTitle: "Test Test Test Test Test Test Test Test"
-        ),
-        Story(
-            images: ["2", "21", "22"],
-            title: "Test Test Test Test",
-            subTitle: "Test Test Test Test Test Test Test Test"
-        ),
-        Story(
-            images: ["3"],
-            title: "Test Test Test Test Test Test",
-            subTitle: "Test Test Test Test Test Test Test Test"
-        ),
-        Story(
-            images: ["4"],
-            title: "Test Test Test Test Test Test Test Test",
-            subTitle: "Test Test Test Test Test Test Test Test")
-    ]
     
     
     static let cities: [City] = [

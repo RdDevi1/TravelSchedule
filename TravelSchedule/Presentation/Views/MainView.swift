@@ -12,12 +12,11 @@ struct MainView: View {
     // MARK: - Properties
     @EnvironmentObject var coordinator: BaseCoordinator
     @EnvironmentObject var viewModel: MainViewModel
+    @EnvironmentObject var storiesViewModel: StoriesViewModel
     
     @State var from: String = "Откуда"
     @State var to: String = "Куда"
-    
-    @State private var selectedStory: Story?
-    
+   
     private let rows = [GridItem()]
     
     // MARK: - Body
@@ -27,30 +26,7 @@ struct MainView: View {
         case .failed(let error):
             ErrorView(error: error)
         case .success:
-            ZStack {
-                
-                Color.YP.white.ignoresSafeArea()
-                
-                ScrollView {
-                    scrollWithStories
-                        .padding(.top, 24)
-                    fromTo
-                        .frame(height: 128)
-                        .padding(.top, 44)
-                    
-                    if viewModel.selectedStationTo != nil
-                        && viewModel.selectedStationFrom != nil {
-                        searchButton
-                            .onTapGesture {
-                                print("Показать список")
-                            }
-                            .padding(.top, 16)
-                    }
-                    Spacer()
-                }
-                .scrollIndicators(.hidden)
-            }
-            .toolbar(.hidden, for: .navigationBar)
+            successView
         }
     }
 }
@@ -59,13 +35,42 @@ struct MainView: View {
 
 extension MainView {
     
+    private var successView: some View {
+        ZStack {
+            
+            Color.YP.white
+            
+            ScrollView {
+                scrollWithStories
+                    .padding(.top, 24)
+                fromTo
+                    .frame(height: 128)
+                    .padding(.top, 44)
+                
+                if viewModel.selectedStationTo != nil
+                    && viewModel.selectedStationFrom != nil {
+                    searchButton
+                        .onTapGesture {
+                            print("Показать список")
+                        }
+                        .padding(.top, 16)
+                }
+                Spacer()
+            }
+            .scrollIndicators(.hidden)
+        }
+        .toolbar(.hidden, for: .navigationBar)
+        .environmentObject(storiesViewModel)
+    }
+    
     private var scrollWithStories: some View {
         ScrollView(.horizontal, showsIndicators: false) {
             LazyHGrid(rows: rows, alignment: .center, spacing: 12) {
-                ForEach(viewModel.stories) { story in
-                    StoryView(story: story, isNew: true)
+                ForEach(StoriesViewModel.stories.indices, id: \.self) { index in
+                    GridCellView(story: StoriesViewModel.stories[index].items[0], isItShown: StoriesViewModel.stories[index].isItShown)
                         .onTapGesture {
-                            viewModel.selectedStory = story
+                            storiesViewModel.selectedStoriesIndex = index
+                            coordinator.stories()
                         }
                 }
             }
@@ -83,7 +88,7 @@ extension MainView {
             HStack {
                 whiteRectangle
                     .padding(.leading, 32)
-                SwitcherView
+                replaceView
                     .padding(.trailing, 32)
             }
         }
@@ -97,7 +102,7 @@ extension MainView {
     
     private var whiteRectangle: some View {
         RoundedRectangle(cornerRadius: 20)
-            .fill(Color.YP.whiteU)
+            .fill(Color.YP.white)
             .frame(height: 96)
             .overlay(
                 VStack(alignment: .leading, spacing: 28) {
@@ -157,16 +162,15 @@ extension MainView {
         }
     }
     
-    private var SwitcherView: some View {
+    private var replaceView: some View {
         Circle()
             .fill(Color.YP.whiteU)
             .frame(width: 36)
-            .disabled((viewModel.selectedStationTo == nil) && (viewModel.selectedStationFrom == nil))
             .overlay(
                 Image(systemName: "arrow.2.squarepath")
                     .foregroundStyle(Color.YP.blue)
                     .onTapGesture {
-                        viewModel.switchStations()
+                        viewModel.replaceStations()
                     }
             )
     }
@@ -188,4 +192,5 @@ extension MainView {
 
 #Preview {
     MainView()
+        .environmentObject(MainViewModel(cities: []))
 }

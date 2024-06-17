@@ -1,13 +1,13 @@
 //
-//  StoryView.swift
+//  GridCellView.swift
 //  TravelSchedule
 //
-//  Created by Vitaly Anpilov on 07.04.2024.
+//  Created by Vitaly Anpilov on 16.06.2024.
 //
 
 import SwiftUI
 
-struct StoryView: View {
+struct GridCellView: View {
     
     // MARK: - Properties
     
@@ -16,19 +16,20 @@ struct StoryView: View {
     private let widthText: Double = 76
     private let heightText: Double = 45
     let story: Story
-    let isNew: Bool
+    let isItShown: Bool
     
     // MARK: - Body
     
     var body: some View {
         ZStack {
-            Image(story.images.first ?? "")
+            Image(story.image)
                 .resizable()
+                .scaledToFill()
                 .frame(
-                    width: isNew ? width - 4 : width,
+                    width: isItShown ? width : width - 4 ,
                     height: height
                 )
-                .opacity(isNew ? 1 : 0.5)
+                .opacity(isItShown ? 0.5 : 1)
                 .clipShape(
                     RoundedRectangle(cornerRadius: 16)
                 )
@@ -36,7 +37,7 @@ struct StoryView: View {
                     RoundedRectangle(cornerRadius: 16)
                         .stroke(
                             Color.YP.blue,
-                            lineWidth: isNew ? 4 : 0
+                            lineWidth: isItShown ? 0 : 4
                         )
                 )
             VStack {
@@ -58,16 +59,18 @@ struct StoryView: View {
     }
 }
 
+    // MARK: - Preview
+
 #Preview {
     ZStack {
         Color.YP.whiteU
-        StoryView(
+        GridCellView(
             story: Story(
-                images: ["2", "21", "22"],
+                image: "2",
                 title: "Test Test Test Test Test ",
                 subTitle: "Test Test Test Test Test Test Test Test"
             ),
-            isNew: false
+            isItShown: false
         )
     }
 }
