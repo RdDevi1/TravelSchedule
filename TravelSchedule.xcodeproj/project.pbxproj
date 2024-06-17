@@ -315,7 +315,6 @@
 		C4E1E1932BCAD73E00D9405A /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				C41A7CF42C1EF3AF00D5D960 /* Components */,
 				C40BB0CB2BCC371600C8C988 /* CarrierDetailView.swift */,
 				C40BB0C92BCC36DA00C8C988 /* FiltersView.swift */,
 				C40BB0C72BCC36C000C8C988 /* ListOfCarriersView.swift */,
@@ -323,6 +322,7 @@
 				C40BB0C52BCC36A000C8C988 /* SelectionCityView.swift */,
 				C40BB0C22BCC365F00C8C988 /* SelectionStationView.swift */,
 				C4464F3B2BC2B87000E7273F /* SettingsView.swift */,
+				C41A7CF42C1EF3AF00D5D960 /* Components */,
 			);
 			path = Views;
 			sourceTree = "<group>";
