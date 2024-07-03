@@ -8,14 +8,14 @@
 import Foundation
 
 struct City: Hashable, Identifiable {
-    var id = UUID()
-    var name: String
-    var stations: [Station]
+    let id = UUID()
+    let name: String
+    let stations: [Station]
 }
 
 struct Station: Hashable, Identifiable {
-    var id = UUID()
-    var name: String
+    let id = UUID()
+    let name: String
 }
 
 enum MockData {

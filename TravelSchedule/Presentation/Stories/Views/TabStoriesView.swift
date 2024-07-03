@@ -22,7 +22,7 @@ struct TabStoriesView: View {
         Int(progress * CGFloat(storiesForOneUser.count))
     }
     @State private var progress: CGFloat = 0
-    @State private var timer: Timer.TimerPublisher
+    @State private var timer: Timer.TimerPublisher = .init(interval: 0.3, runLoop: .main, mode: .common)
     @State private var cancellable: Cancellable?
     
     let actionForFinishStories: () -> ()
@@ -35,10 +35,10 @@ struct TabStoriesView: View {
          actionForCloseButton: @escaping () -> ()
     ) {
         self.storiesForOneUser = storiesForOneUser
-        configuration = TimerConfiguration(storiesCount: storiesForOneUser.count)
-        timer = Self.createTimer(configuration: configuration)
         self.actionForFinishStories = actionForFinishStories
         self.actionForCloseButton = actionForCloseButton
+        configuration = TimerConfiguration(storiesCount: storiesForOneUser.count)
+        timer = Self.createTimer(configuration: configuration)
     }
     
     // MARK: - Body
@@ -102,9 +102,7 @@ extension TabStoriesView {
         cancellable = timer.connect()
     }
     
-    private static func createTimer(
-        configuration: TimerConfiguration
-    ) -> Timer.TimerPublisher {
+    private static func createTimer(configuration: TimerConfiguration) -> Timer.TimerPublisher {
         Timer.publish(
             every: configuration.timerTickInternal,
             on: .main,

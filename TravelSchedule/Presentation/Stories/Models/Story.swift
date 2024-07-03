@@ -7,15 +7,9 @@
 
 import Foundation
 
-struct Stories: Hashable, Identifiable {
-    var id = UUID()
-    var items: [Story]
-    var isItShown: Bool
-}
-
 struct Story: Hashable, Identifiable {
-    var id = UUID()
-    var image: String
-    var title: String
-    var subTitle: String
+    let id = UUID()
+    let image: String
+    let title: String
+    let subTitle: String
 }

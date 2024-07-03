@@ -69,17 +69,13 @@ extension MainStoriesView {
     private var closeButton: some View {
         HStack {
             Spacer()
-            Button(action: {
+            Button {
                 closeView()
-            }, label: {
+            } label: {
                 Image("closeButton")
                     .resizable()
-                    .frame(
-                        width: 30,
-                        height: 30
-                    )
+                    .frame(width: 30, height: 30)
             }
-            )
             .padding(.top, 50)
             .padding(.trailing, 12)
         }

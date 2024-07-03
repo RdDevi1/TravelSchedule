@@ -17,6 +17,7 @@
 		C40A2D652C1EE9F1001EBD25 /* OpenAPIRuntime in Frameworks */ = {isa = PBXBuildFile; productRef = C40A2D642C1EE9F1001EBD25 /* OpenAPIRuntime */; };
 		C40A2D682C1EE9FC001EBD25 /* OpenAPIURLSession in Frameworks */ = {isa = PBXBuildFile; productRef = C40A2D672C1EE9FC001EBD25 /* OpenAPIURLSession */; };
 		C40A2D702C1EECBD001EBD25 /* StoriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40A2D6F2C1EECBD001EBD25 /* StoriesView.swift */; };
+		C40AAEFC2C35B3850078D7A5 /* Stories.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40AAEFB2C35B3850078D7A5 /* Stories.swift */; };
 		C40BB0B92BCC346E00C8C988 /* TravelScheduleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40BB0B82BCC346E00C8C988 /* TravelScheduleApp.swift */; };
 		C40BB0BC2BCC348E00C8C988 /* ViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40BB0BB2BCC348E00C8C988 /* ViewFactory.swift */; };
 		C40BB0BE2BCC34F400C8C988 /* AppLauncher.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40BB0BD2BCC34F400C8C988 /* AppLauncher.swift */; };
@@ -72,6 +73,7 @@
 		C40A2D562C1EE816001EBD25 /* TabStoriesView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabStoriesView.swift; sourceTree = "<group>"; };
 		C40A2D582C1EE816001EBD25 /* Timer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Timer.swift; sourceTree = "<group>"; };
 		C40A2D6F2C1EECBD001EBD25 /* StoriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoriesView.swift; sourceTree = "<group>"; };
+		C40AAEFB2C35B3850078D7A5 /* Stories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stories.swift; sourceTree = "<group>"; };
 		C40BB0B82BCC346E00C8C988 /* TravelScheduleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelScheduleApp.swift; sourceTree = "<group>"; };
 		C40BB0BB2BCC348E00C8C988 /* ViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewFactory.swift; sourceTree = "<group>"; };
 		C40BB0BD2BCC34F400C8C988 /* AppLauncher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLauncher.swift; sourceTree = "<group>"; };
@@ -137,6 +139,7 @@
 			isa = PBXGroup;
 			children = (
 				C40A2D4E2C1EE816001EBD25 /* Story.swift */,
+				C40AAEFB2C35B3850078D7A5 /* Stories.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -477,6 +480,7 @@
 				C41A7CF62C1EFA9000D5D960 /* GridCellView.swift in Sources */,
 				C4464F3F2BC2BC1600E7273F /* MainView.swift in Sources */,
 				C4E1E1812BCAD0F600D9405A /* SearchBar.swift in Sources */,
+				C40AAEFC2C35B3850078D7A5 /* Stories.swift in Sources */,
 				C4AE6EAC2B9E048F0024112A /* NearestCityService.swift in Sources */,
 				C40BB0C02BCC350C00C8C988 /* AppCommunicator.swift in Sources */,
 				C4E1E1762BCACAD500D9405A /* CheckBoxView.swift in Sources */,
