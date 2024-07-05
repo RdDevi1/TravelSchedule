@@ -13,10 +13,7 @@ final class MainViewModel: ObservableObject {
 
     @Published var state = AppState.success
     
-    @Published var stories: [Story]
     @Published var cities: [City]
-    
-    @Published var selectedStory: Story?
     
     @Published var selectedCityFrom: City?
     @Published var selectedCityTo: City?
@@ -32,12 +29,9 @@ final class MainViewModel: ObservableObject {
     // MARK: - Init
     
     init(
-        stories: [Story],
         cities: [City]
     ) {
-        self.stories = stories
         self.cities = cities
-        getStories()
         getCities()
     }
     
@@ -59,7 +53,7 @@ final class MainViewModel: ObservableObject {
         }
     }
     
-    func switchStations() {
+    func replaceStations() {
         if selectedStationTo?.name != nil && selectedStationFrom?.name != nil {
             let newStationTo = selectedStationFrom
             selectedStationFrom = selectedStationTo
@@ -67,12 +61,44 @@ final class MainViewModel: ObservableObject {
         }
     }
     
-    private func getStories() {
-        stories = MockData.stories
-    }
-    
     private func getCities() {
-        cities = MockData.cities
+        let city1 = City(
+            name: "City1",
+            stations: [
+                Station(name: "Station1"),
+                Station(name: "Station2"),
+                Station(name: "Station3"),
+            ]
+        )
+        let city2 = City(
+            name: "City2",
+            stations: [
+                Station(name: "Station1"),
+                Station(name: "Station2"),
+                Station(name: "Station3"),
+                Station(name: "Station4"),
+                Station(name: "Station5"),
+            ]
+        )
+        let city3 = City(
+            name: "City3",
+            stations: [
+                Station(name: "Station1"),
+                Station(name: "Station2"),
+                Station(name: "Station3"),
+                Station(name: "Station4"),
+                Station(name: "Station5"),
+            ]
+        )
+        let city4 = City(
+            name: "City4",
+            stations: [
+                Station(name: "Station1"),
+                Station(name: "Station2")
+            ]
+        )
+        
+        self.cities = [city1, city2, city3, city4]
     }
     
     func updateSelectedTime(time: String) {

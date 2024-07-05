@@ -13,7 +13,8 @@ struct TravelSchedule: App {
     @State private var launcher = AppLauncher()
     @Environment(\.scenePhase)var scenePhase
     @ObservedObject var coordinator = BaseCoordinator()
-    @StateObject var mainViewModel: MainViewModel = MainViewModel(stories: [], cities: [])
+    @StateObject var mainViewModel: MainViewModel = MainViewModel(cities: [])
+    @StateObject var storiesViewModel = StoriesViewModel()
     
     var body: some Scene {
         WindowGroup {
@@ -53,7 +54,7 @@ struct TravelSchedule: App {
         }
         .environmentObject(coordinator)
         .environmentObject(mainViewModel)
-        
+        .environmentObject(storiesViewModel)
     }
     
     @ViewBuilder func appContent() -> some View {

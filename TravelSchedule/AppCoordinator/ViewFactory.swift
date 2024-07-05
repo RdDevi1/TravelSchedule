@@ -27,6 +27,8 @@ final class ViewFactory: ObservableObject {
             self.filters()
         case .carrierDetail:
             self.carrierDetail()
+        case .stories:
+            self.showStories()
         }
     }
     
@@ -58,6 +60,10 @@ final class ViewFactory: ObservableObject {
     }
     static func carrierDetail() -> some View {
         CarrierDetailView()
+    }
+    
+    static func showStories() -> some View {
+        MainStoriesView()
     }
 }
 
